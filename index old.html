@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woodbury Dermatology | North Wesley Chapel, FL</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2b6cb0;
+            --accent: #2f855a;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --border: #e2e8f0;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        header {
+            background-color: white;
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo-area h1 {
+            color: var(--primary);
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+        .logo-area p {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 0.25rem;
+        }
+        .header-cta a {
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .header-cta a:hover {
+            background-color: var(--primary);
+        }
+        .hero {
+            background: linear-gradient(135deg, #eaf2f8 0%, #ffffff 100%);
+            padding: 4rem 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .hero-grid { grid-template-columns: 1.2fr 0.8fr; }
+        }
+        .hero-text h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .hero-text p {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+        }
+        .placeholder-image {
+            border: 3px dashed #cbd5e0;
+            background-color: #edf2f7;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #718096;
+            font-weight: 500;
+            padding: 2rem;
+            min-height: 250px;
+        }
+        .insurance-banner {
+            background-color: #ebf8f2;
+            border-left: 5px solid var(--accent);
+            padding: 1.25rem;
+            margin: 2rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .insurance-banner h3 {
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+            font-size: 1.2rem;
+        }
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            padding: 4rem 1rem;
+        }
+        @media (min-width: 768px) {
+            .main-layout { grid-template-columns: 2fr 1fr; }
+        }
+        .section-title {
+            color: var(--primary);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ebf8f2;
+            padding-bottom: 0.5rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        @media (min-width: 600px) {
+            .services-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .service-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .service-card h3 {
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+        .service-card ul {
+            list-style-type: none;
+        }
+        .service-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+        .service-card li::before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .no-cosmetic-note {
+            background-color: #fffaf0;
+            border: 1px solid #feebc8;
+            color: #c05621;
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+        .bio-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 600px) {
+            .bio-grid { grid-template-columns: 150px 1fr; }
+        }
+        .portrait-placeholder {
+            border: 2px dashed #cbd5e0;
+            background-color: #edf2f7;
+            border-radius: 6px;
+            width: 150px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #718096;
+            font-size: 0.85rem;
+            padding: 0.5rem;
+        }
+        .credentials-list {
+            margin: 1rem 0;
+            padding-left: 1.25rem;
+        }
+        .credentials-list li {
+            margin-bottom: 0.25rem;
+        }
+        .badge-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .badge {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #bee3f8;
+        }
+        .sidebar-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .sidebar-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .info-row {
+            margin-bottom: 1rem;
+        }
+        .info-row strong {
+            display: block;
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+        .checklist {
+            list-style-type: none;
+        }
+        .checklist li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+        .checklist li::before {
+            content: "✓";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .referral-box {
+            background-color: #f7fafc;
+            border: 1px dashed var(--secondary);
+            border-left: 4px solid var(--secondary);
+            padding: 1.25rem;
+            border-radius: 4px;
+        }
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            transition: all 0.2s;
+        }
+        .download-btn:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        .download-icon {
+            font-size: 1.1rem;
+        }
+        footer {
+            background-color: var(--primary);
+            color: #e2e8f0;
+            padding: 3rem 1rem;
+            text-align: center;
+            border-top: 4px solid var(--secondary);
+        }
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        footer a {
+            color: #90cdf4;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo-area">
+                <h1>Woodbury Dermatology</h1>
+                <p>Medical & Surgical Skin Cancer Care</p>
+            </div>
+            <div class="header-cta">
+                <a href="tel:8133222160">📞 Call (813) 322-2160</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h2>North Wesley Chapel's First Dermatology Clinic</h2>
+                <p>Located right near the prominent entrance of the Saddlebrook resort landmark, Woodbury Dermatology delivers focused, direct care directly from the physician. We do not use physician extenders, ensuring your skin health is always managed by an experienced board-certified dermatologist.</p>
+                <a href="tel:8133222160" style="background-color: var(--accent); color: white; text-decoration: none; padding: 0.85rem 1.75rem; border-radius: 4px; font-weight: bold; display: inline-block;">Request Appointment</a>
+            </div>
+            <div class="hero-image">
+                <div class="placeholder-image">
+                    <div>
+                        [ Placeholder: Clinic Building Image ]<br>
+                        <span style="font-size: 0.8rem; color: #a0aec0;">To display your photo, save it as "clinic.jpg" in this folder</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="insurance-banner">
+            <h3>💳 Accepted Insurances</h3>
+            <p>We are proud to announce that we are <strong>proudly accepting Medicare, Aetna, and supplemental insurance networks</strong> to serve the North Wesley Chapel and Pasco County communities.</p>
+        </div>
+    </div>
+
+    <main class="container main-layout">
+        <section class="content-area">
+            
+            <h2 class="section-title">Clinical Scope & Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Surgical & Onco-Dermatology</h3>
+                    <ul>
+                        <li>Melanoma clinical clearance</li>
+                        <li>Basal Cell Carcinoma (BCC)</li>
+                        <li>Squamous Cell Carcinoma (SCC)</li>
+                        <li>Actinic Keratoses (Pre-cancers)</li>
+                        <li>Advanced Mohs Microsurgery</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>General Medical Dermatology</h3>
+                    <ul>
+                        <li>Atypical Moles & Lesions</li>
+                        <li>Symptomatic Cysts & Warts</li>
+                        <li>Acne & Rosacea management</li>
+                        <li>Eczema & Psoriasis therapies</li>
+                        <li>Fungal infections (Skin & Nails)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="no-cosmetic-note">
+                ⚠️ <strong>Clinical Focus Notice:</strong> Woodbury Dermatology is strictly a medical and surgical pathology practice. We operate without the distraction of commercial cosmetic procedures, aesthetic sales, or retail product lines to focus entirely on pathologic disease management.
+            </div>
+
+            <br><br>
+
+            <h2 class="section-title">Meet Your Physician</h2>
+            <div class="bio-section">
+                <div class="bio-grid">
+                    <div class="bio-image">
+                        <div class="portrait-placeholder">
+                            <div>
+                                [ Headshot ]<br>
+                                <span style="font-size: 0.7rem; color: #a0aec0;">Save image as "dr-woodbury.jpg"</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bio-text">
+                        <h3>Michael Woodbury, MD</h3>
+                        <p style="margin-top: 0.5rem; font-style: italic; color: #4a5568;">Solo Practitioner & Medical Director</p>
+                        
+                        <p style="margin-top: 1rem;">Born and raised in Memphis, TN, Dr. Woodbury's extensive medical training spans several of the nation's premier institutions. Following his academic pathways, he previously built clinical experience practicing in Greenwich, CT and Silicon Valley. He spent the last two decades serving communities throughout Western Tennessee and Arkansas with a predominant expertise in treating severely sun-damaged skin and its oncological sequelae.</p>
+                        
+                        <p style="margin-top: 1rem;">Family has recently brought Dr. Woodbury to warm and sunny Florida, supporting his youngest son as he pursues his dream on local tennis courts. Dr. Woodbury establishes Woodbury Dermatology as a dedicated, traditional solo clinical setting where patients receive direct, un-delegated medical evaluations directly from their physician.</p>
+                        
+                        <ul class="credentials-list">
+                            <li><strong>Harvard College</strong> – Undergraduate Studies</li>
+                            <li><strong>University of Chicago Medical School</strong> – Doctor of Medicine (MD)</li>
+                            <li><strong>Columbia Presbyterian Hospital</strong> – Clinical Residency Training</li>
+                            <li><strong>University of Michigan Dept of Dermatology</strong> – Specialized Fellowship Path</li>
+                        </ul>
+
+                        <div class="badge-group">
+                            <span class="badge">Board Certified in Dermatology</span>
+                            <span class="badge">Board Certified in Mohs Microsurgery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <sidebar class="sidebar-area">
+            
+            <div class="sidebar-card">
+                <h3>Office Logistics</h3>
+                <div class="info-row">
+                    <strong>📍 Location Address</strong>
+                    <p>29160 Chapel Park Drive<br>Wesley Chapel, Florida 33543</p>
+                    <p style="font-size: 0.85rem; color: var(--secondary); margin-top: 0.25rem;">(Located right at the Saddlebrook Resort entrance Landmark)</p>
+                </div>
+                <div class="info-row">
+                    <strong>⏰ Operating Hours</strong>
+                    <p>Mondays: 8:00 AM – 5:00 PM</p>
+                </div>
+                <div class="info-row">
+                    <strong>📞 Direct Contact Lines</strong>
+                    <p>Phone: <a href="tel:8133222160">(813) 322-2160</a></p>
+                    <p>Secure Fax: (901) 432-6123</p>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>What to Bring</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 0.75rem; color: #4a5568;">Please have these items ready for your Monday arrival:</p>
+                <ul class="checklist">
+                    <li>Valid Photo Identification (ID)</li>
+                    <li>Medicare / Aetna / Insurance Cards</li>
+                    <li>Comprehensive List of Current Medications</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Patient Forms & Downloads</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem; color: #4a5568;">Save time by downloading and filling out your paperwork prior to visiting:</p>
+                
+                <a href="patient-medical-history.pdf" download class="download-btn">
+                    <span>1. Patient Medical History Packet</span>
+                    <span class="download-icon">⬇️</span>
+                </a>
+                <a href="hipaa-privacy-notice.pdf" download class="download-btn">
+                    <span>2. HIPAA Privacy Notice</span>
+                    <span class="download-icon">⬇️</span>
+                </a>
+                <a href="medicare-coverage-disclaimer.pdf" download class="download-btn">
+                    <span>3. Medicare & Billing Policy</span>
+                    <span class="download-icon">⬇️</span>
+                </a>
+            </div>
+
+            <div class="sidebar-card referral-box">
+                <h3>Physician Referrals</h3>
+                <p style="font-size: 0.9rem; color: #2d3748;">Local primary care, internal medicine, and family practitioners can route pathology findings, biopsy notes, or skin cancer referral logs securely via fax to <strong>(901) 432-6123</strong> for fast scheduling.</p>
+            </div>
+
+        </sidebar>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><strong>Woodbury Dermatology</strong> • 29160 Chapel Park Drive, Wesley Chapel, FL 33543</p>
+            <p>For scheduling, insurance coverage verification, or general questions, call <a href="tel:8133222160">(813) 322-2160</a></p>
+            <p style="margin-top: 1.5rem; font-size: 0.8rem; color: #a0aec0;">&copy; 2026 Woodbury Dermatology. All Rights Reserved. Solo General Medical & Surgical Practice.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
